@@ -9,8 +9,6 @@ param keyVaultDiagnosticStorageAccountName string
 @description('Required. The name of the Azure Key Vault to create.')
 param keyVaultName string
 
-param softDeleteRetentionDays int = 30
-
 @description('Optional. The number of days for the retention in days. A value of 0 will retain the events indefinitely.')
 @minValue(0)
 @maxValue(365)
@@ -139,8 +137,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2023-07-01' = {
     enabledForDeployment: true
     enabledForTemplateDeployment: true
     enabledForDiskEncryption: true
-    enableSoftDelete: true
-    softDeleteRetentionInDays: softDeleteRetentionDays
+    enableSoftDelete: false
     enableRbacAuthorization: true
     publicNetworkAccess: 'Enabled'
     accessPolicies: []

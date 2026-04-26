@@ -117,7 +117,6 @@ module hciClusterPreqs '../azureStackHCIClusterPreqs/ashciPrereqs.bicep' = {
     localAdminPassword: localAdminPassword
     localAdminUsername: 'admin-hci'
     logsRetentionInDays: 30
-    softDeleteRetentionDays: 30
     tenantId: subscription().tenantId
     vnetSubnetResourceId: hciHostDeployment.outputs.vnetSubnetResourceId
   }
