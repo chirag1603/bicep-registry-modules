@@ -37,10 +37,10 @@ param arbDeploymentServicePrincipalSecret string = ''
 #disable-next-line secure-parameter-default
 param hciResourceProviderObjectId string = ''
 
-@description('Optional. The resource ID of a pre-baked Azure Compute Gallery image for the HCI host VM. Injected via CI-hciHostImageReferenceId secret.')
+@description('Required. The password of the domain administrator account.')
 @secure()
 #disable-next-line secure-parameter-default
-param hciHostImageReferenceId string = ''
+param domainAdminPassword string = ''
 
 #disable-next-line no-hardcoded-location // Due to quotas and capacity challenges, this region must be used in the AVM testing subscription
 var enforcedLocation = 'southeastasia'
@@ -72,7 +72,7 @@ module nestedDependencies '../../../../../../../utilities/e2e-template-assets/mo
     deploymentUserPassword: arbLocalAdminAndDeploymentUserPass
     localAdminPassword: arbLocalAdminAndDeploymentUserPass
     location: enforcedLocation
-    hciHostImageReferenceId: hciHostImageReferenceId
+    domainAdminPassword: domainAdminPassword
   }
 }
 

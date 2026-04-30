@@ -263,7 +263,7 @@ resource maintenanceAssignment_hciHost 'Microsoft.Maintenance/configurationAssig
   scope: vm
 }
 
-resource wait 'Microsoft.Compute/virtualMachines/runCommands@2024-03-01' = {
+resource wait 'Microsoft.Compute/virtualMachines/runCommands@2024-11-01' = {
   parent: vm
   name: 'wait'
   location: location
@@ -272,6 +272,7 @@ resource wait 'Microsoft.Compute/virtualMachines/runCommands@2024-03-01' = {
       script: loadTextContent('./scripts/wait.ps1')
     }
     treatFailureAsDeploymentFailure: true
+    timeoutInSeconds: 600
     parameters: [
       {
         name: 'Minutes'
@@ -285,7 +286,7 @@ resource wait 'Microsoft.Compute/virtualMachines/runCommands@2024-03-01' = {
 // Initialize Arc on HCI Node VMs and AD for HCI  //
 // ==============================================//
 
-resource ad 'Microsoft.Compute/virtualMachines/runCommands@2024-03-01' = {
+resource ad 'Microsoft.Compute/virtualMachines/runCommands@2024-11-01' = {
   parent: vm
   name: 'ad'
   location: location
@@ -297,6 +298,7 @@ resource ad 'Microsoft.Compute/virtualMachines/runCommands@2024-03-01' = {
       script: loadTextContent('./scripts/provision-ad.ps1')
     }
     treatFailureAsDeploymentFailure: true
+    timeoutInSeconds: 5400
     parameters: [
       {
         name: 'IP'
@@ -340,7 +342,7 @@ resource ad 'Microsoft.Compute/virtualMachines/runCommands@2024-03-01' = {
   }
 }
 
-resource arc1 'Microsoft.Compute/virtualMachines/runCommands@2024-03-01' = if (!empty(arbDeploymentAppId ?? '') && !empty(arbDeploymentServicePrincipalSecret ?? '')) {
+resource arc1 'Microsoft.Compute/virtualMachines/runCommands@2024-11-01' = if (!empty(arbDeploymentAppId ?? '') && !empty(arbDeploymentServicePrincipalSecret ?? '')) {
   parent: vm
   name: 'arc1'
   location: location
@@ -352,6 +354,7 @@ resource arc1 'Microsoft.Compute/virtualMachines/runCommands@2024-03-01' = if (!
       script: loadTextContent('./scripts/provision-arc.ps1')
     }
     treatFailureAsDeploymentFailure: true
+    timeoutInSeconds: 5400
     parameters: [
       {
         name: 'IP'
@@ -403,7 +406,7 @@ resource arc1 'Microsoft.Compute/virtualMachines/runCommands@2024-03-01' = if (!
   }
 }
 
-resource arc2 'Microsoft.Compute/virtualMachines/runCommands@2024-03-01' = if (!empty(arbDeploymentAppId ?? '') && !empty(arbDeploymentServicePrincipalSecret ?? '')) {
+resource arc2 'Microsoft.Compute/virtualMachines/runCommands@2024-11-01' = if (!empty(arbDeploymentAppId ?? '') && !empty(arbDeploymentServicePrincipalSecret ?? '')) {
   parent: vm
   name: 'arc2'
   location: location
@@ -415,6 +418,7 @@ resource arc2 'Microsoft.Compute/virtualMachines/runCommands@2024-03-01' = if (!
       script: loadTextContent('./scripts/provision-arc.ps1')
     }
     treatFailureAsDeploymentFailure: true
+    timeoutInSeconds: 5400
     parameters: [
       {
         name: 'IP'

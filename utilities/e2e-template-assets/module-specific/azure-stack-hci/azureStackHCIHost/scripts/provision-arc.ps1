@@ -72,9 +72,9 @@ try {
         Invoke-RestMethod -Uri $uri -Method Put -Headers $headers -Body ($body | ConvertTo-Json) -ContentType 'application/json'
 
         Write-Output 'Waiting for Edge device resource to be ready'
-        Start-Sleep -Seconds 600
+        Start-Sleep -Seconds 300
         $waitInterval = 60
-        $maxWaitCount = 30
+        $maxWaitCount = 40
         $ready = $false
         for ($waitCount = 0; $job.JobState -ne 'Transferred' -and $waitCount -lt $maxWaitCount; $waitCount++) {
             Connect-AzAccount -ServicePrincipal -Credential $credential -Subscription $Using:SubscriptionId -Tenant $Using:TenantId | Out-Null
