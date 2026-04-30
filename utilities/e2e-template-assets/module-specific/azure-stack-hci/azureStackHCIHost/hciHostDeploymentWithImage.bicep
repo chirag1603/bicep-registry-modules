@@ -211,15 +211,15 @@ resource vm 'Microsoft.Compute/virtualMachines@2024-11-01' = {
       ]
     }
     storageProfile: {
-      imageReference: !empty(imagePublisher)
+      imageReference: !empty(imageReferenceId)
         ? {
+            sharedGalleryImageId: imageReferenceId
+          }
+        : {
             publisher: imagePublisher
             offer: imageOffer
             sku: imageSku
             version: imageVersion
-          }
-        : {
-            sharedGalleryImageId: imageReferenceId
           }
       osDisk: {
         createOption: 'FromImage'
@@ -242,13 +242,6 @@ resource vm 'Microsoft.Compute/virtualMachines@2024-11-01' = {
           }
         }
       }
-    }
-    securityProfile: {
-      uefiSettings: {
-        secureBootEnabled: true
-        vTpmEnabled: true
-      }
-      securityType: 'TrustedLaunch'
     }
     licenseType: 'Windows_Server'
   }
