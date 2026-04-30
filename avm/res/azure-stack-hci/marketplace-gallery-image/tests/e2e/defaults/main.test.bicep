@@ -42,6 +42,11 @@ param hciResourceProviderObjectId string = ''
 #disable-next-line secure-parameter-default
 param domainAdminPassword string = ''
 
+@description('Optional. The resource ID of a pre-baked Azure Compute Gallery image for the HCI host VM. Injected via CI-hciHostImageReferenceId secret.')
+@secure()
+#disable-next-line secure-parameter-default
+param hciHostImageReferenceId string = ''
+
 #disable-next-line no-hardcoded-location // Due to quotas and capacity challenges, this region must be used in the AVM testing subscription
 var enforcedLocation = 'southeastasia'
 
@@ -73,6 +78,7 @@ module nestedDependencies '../../../../../../../utilities/e2e-template-assets/mo
     localAdminPassword: arbLocalAdminAndDeploymentUserPass
     location: enforcedLocation
     domainAdminPassword: domainAdminPassword
+    hciHostImageReferenceId: hciHostImageReferenceId
   }
 }
 

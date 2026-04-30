@@ -42,6 +42,11 @@ param hciResourceProviderObjectId string = ''
 #disable-next-line secure-parameter-default
 param domainAdminPassword string = ''
 
+@description('Optional. The resource ID of a pre-baked Azure Compute Gallery image for the HCI host VM. Injected via CI-hciHostImageReferenceId secret.')
+@secure()
+#disable-next-line secure-parameter-default
+param hciHostImageReferenceId string = ''
+
 @description('Required. The object ID of a user that will be granted necessary permissions for the environment.')
 param userObjectId string = ''
 
@@ -76,6 +81,7 @@ module nestedDependencies '../../../../../../../utilities/e2e-template-assets/mo
     localAdminPassword: arbLocalAdminAndDeploymentUserPass
     location: enforcedLocation
     domainAdminPassword: domainAdminPassword
+    hciHostImageReferenceId: hciHostImageReferenceId
   }
 }
 
