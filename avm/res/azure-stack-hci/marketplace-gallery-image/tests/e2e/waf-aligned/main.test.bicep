@@ -37,11 +37,6 @@ param arbDeploymentServicePrincipalSecret string = ''
 #disable-next-line secure-parameter-default
 param hciResourceProviderObjectId string = ''
 
-@description('Required. The password of the domain administrator account.')
-@secure()
-#disable-next-line secure-parameter-default
-param domainAdminPassword string = ''
-
 @description('Optional. The resource ID of a pre-baked Azure Compute Gallery image for the HCI host VM. Injected via CI-hciHostImageReferenceId secret.')
 @secure()
 #disable-next-line secure-parameter-default
@@ -80,7 +75,7 @@ module nestedDependencies '../../../../../../../utilities/e2e-template-assets/mo
     deploymentUserPassword: arbLocalAdminAndDeploymentUserPass
     localAdminPassword: arbLocalAdminAndDeploymentUserPass
     location: enforcedLocation
-    domainAdminPassword: domainAdminPassword
+    domainAdminPassword: arbLocalAdminAndDeploymentUserPass
     hciHostImageReferenceId: hciHostImageReferenceId
   }
 }
@@ -104,7 +99,7 @@ module azlocal 'br/public:avm/res/azure-stack-hci/cluster:0.4.0' = {
       defaultGateway: '172.20.0.1'
       deploymentPrefix: 'a${take(uniqueString(namePrefix, serviceShort), 7)}' // ensure deployment prefix starts with a letter to match '^(?=.{1,8}$)([a-zA-Z])(\-?[a-zA-Z\d])*$'
       dnsServers: ['172.20.0.1']
-      domainFqdn: 'hci.local'
+      domainFqdn: 'jumpstart.local'
       domainOUPath: nestedDependencies.outputs.domainOUPath
       startingIPAddress: '172.20.0.55'
       endingIPAddress: '172.20.0.65'
