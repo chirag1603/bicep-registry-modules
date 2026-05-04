@@ -1,2 +1,0 @@
-This test requires an Azure Stack HCI 24H2 cluster which is not available in the standard AVM CI environment.
-Validated via fork CI on branch avm-hci-ci targeting HCI test subscription.
