@@ -10,7 +10,6 @@ The latest version of the changelog can be found [here](https://github.com/Azure
 - Added `securityProfile` parameter (FIPS image, custom CA trust certificates)
 - Added `gpuCountPerNode` to agent pool profiles
 - Added `authorizedIPRanges` to cluster VM access profile
-- Aligned test harness with vault-based secret injection pattern
 
 ### Breaking Changes
 
