@@ -38,7 +38,6 @@ try {
     $username = ".\$LocalAdministratorAccount"
     $securePassword = ConvertTo-SecureString $LocalAdministratorPassword -AsPlainText -Force
     $credential = New-Object System.Management.Automation.PSCredential -ArgumentList $username, $securePassword
-    Set-Item WSMan:\localhost\Client\TrustedHosts -Value $IP -Force
     $session = New-PSSession -ComputerName $IP -Port $Port -Authentication $Authentication -Credential $credential
 
     Invoke-Command -Session $session -ScriptBlock {
@@ -73,9 +72,9 @@ try {
         Invoke-RestMethod -Uri $uri -Method Put -Headers $headers -Body ($body | ConvertTo-Json) -ContentType 'application/json'
 
         Write-Output 'Waiting for Edge device resource to be ready'
-        Start-Sleep -Seconds 300
+        Start-Sleep -Seconds 600
         $waitInterval = 60
-        $maxWaitCount = 40
+        $maxWaitCount = 30
         $ready = $false
         for ($waitCount = 0; $job.JobState -ne 'Transferred' -and $waitCount -lt $maxWaitCount; $waitCount++) {
             Connect-AzAccount -ServicePrincipal -Credential $credential -Subscription $Using:SubscriptionId -Tenant $Using:TenantId | Out-Null
