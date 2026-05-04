@@ -183,7 +183,7 @@ resource nic 'Microsoft.Network/networkInterfaces@2024-07-01' = {
   }
 }
 
-param imageReferenceId string = '/SharedGalleries/b9e38f20-7c9c-4497-a25d-1a0c5eef2108-DIRECTLYSHARING/Images/vhci-Generalized/Versions/latest'
+param imageReferenceId string = '/subscriptions/98f24b96-fffa-4142-bec5-8472d0f30749/resourceGroups/PRITHJIT-RG-HCI-IMAGE-BUILDER/providers/Microsoft.Compute/galleries/avmhcivmimagegallerybackup/images/hci-host-image/versions/1.0.0'
 
 // Azure Stack HCI Host VM -
 resource vm 'Microsoft.Compute/virtualMachines@2024-11-01' = {
@@ -213,7 +213,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2024-11-01' = {
     storageProfile: {
       imageReference: !empty(imageReferenceId)
         ? {
-            sharedGalleryImageId: imageReferenceId
+            id: imageReferenceId
           }
         : {
             publisher: imagePublisher
