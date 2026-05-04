@@ -9,8 +9,6 @@ The latest version of the changelog can be found [here](https://github.com/Azure
 - Upgraded API version from `2024-05-01-preview` to `2025-04-01-preview` for 24H2 compatibility
 - Updated telemetry API from `2024-03-01` to `2024-07-01`
 - Added new optional parameters: `blockSizeBytes`, `diskFileFormat`, `hyperVGeneration`, `logicalSectorBytes`, `physicalSectorBytes`
-- Updated test harness to use cluster module `0.4.0` with inline ACI deployment
-- Added `hciHostImageReferenceId` parameter for accelerated CI host bootstrap
 - Updated ResourceGroup API version to `2025-04-01`
 
 ### Breaking Changes
