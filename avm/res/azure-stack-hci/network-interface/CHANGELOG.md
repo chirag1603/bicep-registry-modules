@@ -10,8 +10,6 @@ The latest version of the changelog can be found [here](https://github.com/Azure
 - Updated telemetry resource API version from `2023-07-01` to `2024-07-01`.
 - Added optional `macAddress` parameter.
 - Added optional `networkSecurityGroupResourceId` parameter.
-- Updated test harness to use cluster module `0.4.0` with inline ACI deployment for faster, more reliable e2e tests.
-- Added `hciHostImageReferenceId` parameter support in e2e tests for pre-baked image CI acceleration.
 
 ### Breaking Changes
 
