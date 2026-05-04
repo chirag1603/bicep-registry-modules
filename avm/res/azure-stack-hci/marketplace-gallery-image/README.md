@@ -60,12 +60,12 @@ module marketplaceGalleryImage 'br/public:avm/res/azure-stack-hci/marketplace-ga
     identifier: {
       offer: 'WindowsServer'
       publisher: 'MicrosoftWindowsServer'
-      sku: '2022-datacenter-azure-edition'
+      sku: '2025-datacenter-azure-edition'
     }
     name: 'ashmgiminmarketplaceimage'
     osType: 'Windows'
     version: {
-      name: '20348.2461.240510'
+      name: '26100.4652.250808'
     }
   }
 }
@@ -91,7 +91,7 @@ module marketplaceGalleryImage 'br/public:avm/res/azure-stack-hci/marketplace-ga
       "value": {
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
-        "sku": "2022-datacenter-azure-edition"
+        "sku": "2025-datacenter-azure-edition"
       }
     },
     "name": {
@@ -102,7 +102,7 @@ module marketplaceGalleryImage 'br/public:avm/res/azure-stack-hci/marketplace-ga
     },
     "version": {
       "value": {
-        "name": "20348.2461.240510"
+        "name": "26100.4652.250808"
       }
     }
   }
@@ -124,12 +124,12 @@ param customLocationResourceId = '<customLocationResourceId>'
 param identifier = {
   offer: 'WindowsServer'
   publisher: 'MicrosoftWindowsServer'
-  sku: '2022-datacenter-azure-edition'
+  sku: '2025-datacenter-azure-edition'
 }
 param name = 'ashmgiminmarketplaceimage'
 param osType = 'Windows'
 param version = {
-  name: '20348.2461.240510'
+  name: '26100.4652.250808'
 }
 ```
 
@@ -159,12 +159,12 @@ module marketplaceGalleryImage 'br/public:avm/res/azure-stack-hci/marketplace-ga
     identifier: {
       offer: 'WindowsServer'
       publisher: 'MicrosoftWindowsServer'
-      sku: '2022-datacenter-azure-edition'
+      sku: '2025-datacenter-azure-edition'
     }
     name: 'ashmgiwafmarketplaceimage'
     osType: 'Windows'
     version: {
-      name: '20348.2461.240510'
+      name: '26100.4652.250808'
     }
     // Non-required parameters
     cloudInitDataSource: 'Azure'
@@ -199,7 +199,7 @@ module marketplaceGalleryImage 'br/public:avm/res/azure-stack-hci/marketplace-ga
       "value": {
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
-        "sku": "2022-datacenter-azure-edition"
+        "sku": "2025-datacenter-azure-edition"
       }
     },
     "name": {
@@ -210,7 +210,7 @@ module marketplaceGalleryImage 'br/public:avm/res/azure-stack-hci/marketplace-ga
     },
     "version": {
       "value": {
-        "name": "20348.2461.240510"
+        "name": "26100.4652.250808"
       }
     },
     // Non-required parameters
@@ -249,12 +249,12 @@ param customLocationResourceId = '<customLocationResourceId>'
 param identifier = {
   offer: 'WindowsServer'
   publisher: 'MicrosoftWindowsServer'
-  sku: '2022-datacenter-azure-edition'
+  sku: '2025-datacenter-azure-edition'
 }
 param name = 'ashmgiwafmarketplaceimage'
 param osType = 'Windows'
 param version = {
-  name: '20348.2461.240510'
+  name: '26100.4652.250808'
 }
 // Non-required parameters
 param cloudInitDataSource = 'Azure'
