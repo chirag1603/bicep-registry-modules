@@ -2,7 +2,7 @@
 param location string
 
 @description('Optional. The Azure VM size for the HCI Host VM, which must support nested virtualization and have sufficient capacity for the HCI node VMs!')
-param hostVMSize string = 'Standard_D16as_v7'
+param hostVMSize string = 'Standard_E48bds_v5'
 
 @description('Optional. The local admin user name.')
 param localAdminUsername string = 'admin-hci'
@@ -183,7 +183,7 @@ resource nic 'Microsoft.Network/networkInterfaces@2024-07-01' = {
   }
 }
 
-param imageReferenceId string = '/subscriptions/98f24b96-fffa-4142-bec5-8472d0f30749/resourceGroups/PRITHJIT-RG-HCI-IMAGE-BUILDER/providers/Microsoft.Compute/galleries/avmhcivmimagegallerybackup/images/hci-host-image/versions/1.0.0'
+param imageReferenceId string = '/subscriptions/98f24b96-fffa-4142-bec5-8472d0f30749/resourceGroups/prithjit-rg-hci-image-builder/providers/Microsoft.Compute/galleries/avmhcivmimagegallery/images/hci-host-image/versions/1.0.0'
 
 // Azure Stack HCI Host VM -
 resource vm 'Microsoft.Compute/virtualMachines@2024-11-01' = {
@@ -212,9 +212,9 @@ resource vm 'Microsoft.Compute/virtualMachines@2024-11-01' = {
     }
     storageProfile: {
       imageReference: !empty(imageReferenceId)
-        ? {
-            id: imageReferenceId
-          }
+        ? (startsWith(imageReferenceId, '/SharedGalleries/')
+            ? { sharedGalleryImageId: imageReferenceId }
+            : { id: imageReferenceId })
         : {
             publisher: imagePublisher
             offer: imageOffer
