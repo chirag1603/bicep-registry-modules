@@ -38,6 +38,7 @@ try {
     $username = ".\$LocalAdministratorAccount"
     $securePassword = ConvertTo-SecureString $LocalAdministratorPassword -AsPlainText -Force
     $credential = New-Object System.Management.Automation.PSCredential -ArgumentList $username, $securePassword
+    Set-Item WSMan:\localhost\Client\TrustedHosts -Value $IP -Force
     $session = New-PSSession -ComputerName $IP -Port $Port -Authentication $Authentication -Credential $credential
 
     Invoke-Command -Session $session -ScriptBlock {
