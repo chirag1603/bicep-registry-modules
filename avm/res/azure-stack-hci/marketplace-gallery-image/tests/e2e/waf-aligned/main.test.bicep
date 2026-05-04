@@ -194,7 +194,7 @@ module testDeployment '../../../main.bicep' = {
     identifier: {
       offer: 'WindowsServer'
       publisher: 'MicrosoftWindowsServer'
-      sku: '2022-datacenter-azure-edition'
+      sku: '2025-datacenter-azure-edition'
     }
     osType: 'Windows'
     cloudInitDataSource: 'Azure'
@@ -206,7 +206,7 @@ module testDeployment '../../../main.bicep' = {
       Purpose: 'MarketplaceGalleryImage'
     }
     version: {
-      name: '20348.2461.240510'
+      name: '26100.4652.250808'
     }
   }
 }
