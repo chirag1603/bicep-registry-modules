@@ -195,7 +195,7 @@ module testDeployment '../../../main.bicep' = {
     }
     osType: 'Windows'
     version: {
-      name: '26100.4652.250808'
+      name: '26100.32313.260207'
     }
   }
 }

@@ -206,7 +206,7 @@ module testDeployment '../../../main.bicep' = {
       Purpose: 'MarketplaceGalleryImage'
     }
     version: {
-      name: '26100.4652.250808'
+      name: '26100.32313.260207'
     }
   }
 }
