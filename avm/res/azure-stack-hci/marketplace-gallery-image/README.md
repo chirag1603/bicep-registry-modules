@@ -65,7 +65,7 @@ module marketplaceGalleryImage 'br/public:avm/res/azure-stack-hci/marketplace-ga
     name: 'ashmgiminmarketplaceimage'
     osType: 'Windows'
     version: {
-      name: '26100.4652.250808'
+      name: '26100.32313.260207'
     }
   }
 }
@@ -102,7 +102,7 @@ module marketplaceGalleryImage 'br/public:avm/res/azure-stack-hci/marketplace-ga
     },
     "version": {
       "value": {
-        "name": "26100.4652.250808"
+        "name": "26100.32313.260207"
       }
     }
   }
@@ -129,7 +129,7 @@ param identifier = {
 param name = 'ashmgiminmarketplaceimage'
 param osType = 'Windows'
 param version = {
-  name: '26100.4652.250808'
+  name: '26100.32313.260207'
 }
 ```
 
@@ -164,7 +164,7 @@ module marketplaceGalleryImage 'br/public:avm/res/azure-stack-hci/marketplace-ga
     name: 'ashmgiwafmarketplaceimage'
     osType: 'Windows'
     version: {
-      name: '26100.4652.250808'
+      name: '26100.32313.260207'
     }
     // Non-required parameters
     cloudInitDataSource: 'Azure'
@@ -210,7 +210,7 @@ module marketplaceGalleryImage 'br/public:avm/res/azure-stack-hci/marketplace-ga
     },
     "version": {
       "value": {
-        "name": "26100.4652.250808"
+        "name": "26100.32313.260207"
       }
     },
     // Non-required parameters
@@ -254,7 +254,7 @@ param identifier = {
 param name = 'ashmgiwafmarketplaceimage'
 param osType = 'Windows'
 param version = {
-  name: '26100.4652.250808'
+  name: '26100.32313.260207'
 }
 // Non-required parameters
 param cloudInitDataSource = 'Azure'
