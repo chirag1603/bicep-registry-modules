@@ -174,11 +174,27 @@ module azlocal 'br/public:avm/res/azure-stack-hci/cluster:0.4.0' = {
   }
 }
 
+// Wait for the HCI cluster's edge device to finish provisioning before deploying marketplace images.
+// The cluster module's deployment script returns after ARM accepts the deploymentSettings, but the
+// edge device continues provisioning asynchronously. Marketplace image downloads require the edge
+// device to be fully operational.
+module waitForEdgeDeviceProvisioning '../../../../../../../utilities/e2e-template-assets/module-specific/azure-stack-hci/waitForEdgeDevice/waitForEdgeDevice.bicep' = {
+  name: '${uniqueString(deployment().name, enforcedLocation)}-waitForEdgeDevice-${serviceShort}'
+  scope: resourceGroup
+  params: {
+    clusterNodeNames: nestedDependencies.outputs.clusterNodeNames
+    location: enforcedLocation
+  }
+  dependsOn: [
+    azlocal
+  ]
+}
+
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-15' existing = {
   scope: resourceGroup
   name: '${namePrefix}${serviceShort}-location'
   dependsOn: [
-    azlocal
+    waitForEdgeDeviceProvisioning
   ]
 }
 
