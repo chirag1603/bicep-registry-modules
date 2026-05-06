@@ -2,12 +2,13 @@
 
 The latest version of the changelog can be found [here](https://github.com/Azure/bicep-registry-modules/blob/main/avm/res/azure-stack-hci/marketplace-gallery-image/CHANGELOG.md).
 
-## 0.2.0
+## 0.1.1
 
 ### Changes
 
-- Updated telemetry resource API version from `2024-03-01` to `2024-07-01`.
-- Fixed typo in role assignment condition comment.
+- Added 'NA' option to hyperVGeneration parameter enum (additive, non-breaking)
+- Updated telemetry deployment API version to 2025-04-01
+- Fixed typo in roleAssignment conditional comment: 'condtion' to 'condition'
 
 ### Breaking Changes
 
